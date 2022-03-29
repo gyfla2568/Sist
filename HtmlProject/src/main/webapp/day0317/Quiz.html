@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#out{
+	position:absolute;
+	left:10px;
+	top: 300px;
+	width: 800px;
+	height: 200px;
+	border:2px solid gray;
+	background: #ffffcc;
+	padding:20	10;
+
+}
+	table {
+	border: 2px solid gray;
+	
+	width: 500px;
+	
+}
+tr,th,td{
+	border: 1px dotted gray;
+	font-size: 10pt;
+}
+</style>
+<script type="text/javascript">
+function disp(){
+
+	
+	//최종학력, 학년 선택하여 div에 출력
+	//나의 학력은 고등학교입니다
+	var gradeStr="나의 학력은";
+	for(var i=0; i<frm.grade.length;i++)
+	{
+		if(frm.grade[i].checked)
+			{
+			gradeStr+=frm.grade[i].value+"입니다<br>";
+			}
+	}
+	//거주지 div에 출력
+	out.innerHTML+="거주지: "+gradeStr;
+	
+	//가능한 프로그램 언어
+	//checkbox를 이용한 다중선택
+	var langStr="나의 프로그램 언어는 ";
+	var flag=false;
+	for(var i=0;i<frm.lang.length;i++)
+	{
+		//선택이 되면 value값 읽어서 hobbystr에 추가
+		if(frm.lang[i].checked)
+		{
+			flag=true;
+			langStr+=frm.lang[i].value+"";
+		}
+	}
+	//취미를 하나도 선택안하면 초기값 그래도 false
+	if(!flag)
+	{
+		langStr="프로그래밍 언어가 없습니다<br>";
+	}else{
+			langStr+="입니다<br>";
+		}
+	out.innerHTML="프로그래밍 언어: "+langStr;
+	
+	//이미지를 div에 출력
+	out.innerHTML+="이미지: "+frm.image.value+"<br>";
+	//쎄미 조를 div에 출력
+	out.innerHTML+="조: "+frm.jo.value+"<br>";
+	//키를 div에 출력
+	out.innerHTML+="키: "+frm.height.value+"<br>";
+	//몸무게를 div에 출력
+	out.innerHTML+="몸무게: "+frm.weight.value+"<br>";
+	//색상을 div에 출력
+	out.innerHTML+="색상: "+frm.color.value+"<br>";
+	//날짜를 div에 출력
+	out.innerHTML+="날짜: "+frm.date.value+"<br>";
+	out.innerHTML+="나의 학력은 "+frm.grade.value+"입니다<br>";
+}
+	function init(){
+		out.innerHTML="";
+	}
+
+
+</script>
+</head>
+<body>
+<form action="#" name="frm">
+	<table border="1" style="width: 800px;">
+		<caption>Radio&Check</caption>
+		<!-- radiobox -->
+			<tr height="30">
+				<td>
+					<b>최종학력을 선택하시오</b>
+					<!-- radiobox는 name이 동일해야 한다 -->
+					<input type="radio" name="grade" value="고등학교">
+					고등학교&nbsp; <!-- 한칸띄우기가 &nbsp; -->
+					<input type="radio" name="grade" value="전문대학교">
+					전문대학교 &nbsp;
+					<input type="radio" name="grade" value="4년대학">
+					4년대학 &nbsp;
+					<input type="radio" name="grade" value="대학원">
+					대학원 &nbsp;
+					
+				</td>
+				
+			</tr>
+			
+			<!-- checkbox -->
+			<tr>
+				<td>
+					<b>가능한 프로그램 언어</b>
+					<input type="checkbox" name="lang" value="c언어">
+					c언어 &nbsp;
+					<input type="checkbox" name="lang" value="java언어">
+					java언어 &nbsp;
+					<input type="checkbox" name="lang" value="jsp언어">
+					jsp &nbsp;
+					<input type="checkbox" name="lang" value="spring">
+					spring &nbsp;
+				</td>
+			</tr>
+			<!--file,image -->
+			<tr>
+			<td>
+				<b>이미지 or 파일선택</b>&nbsp;&nbsp;&nbsp;
+				<input type="file" name="image">
+				</td>
+			</tr>
+			<!-- select a,b,c,d반-->
+			<tr>
+				<td>
+					
+					<b>쎄미프로젝트를 가장 잘할 것 같은 조는?</b>
+					<select size="1" name="jo"> 
+						<option value="1조" selected="selected">1조</option>
+						<option value="2조">2조</option>
+						<option value="3조">3조</option>
+						<option value="4조">4조</option>
+					</select>
+				</td>
+			</tr>
+			<!-- number -->
+			<tr>
+				<td>
+				
+				<b>당신의 키는 몇cm입니까?</b>&nbsp;&nbsp;
+					<input type="number" name="height" min="150" max="210"
+					value="150" step="2">cm
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				 
+				<b>당신의 몸무게는 몇kg입니까?</b>&nbsp;&nbsp;
+					<input type="number" name="weight" min="30" max="150"
+					value="60" step="2">kg
+				
+				</td>
+			</tr>
+			
+			<!-- color -->
+			<tr>
+				<td>
+				 
+					<b>색상선택</b>&nbsp;&nbsp;
+						<input type="color" name="color">
+					
+				</td>
+			</tr>	
+			<!-- date -->
+			<tr>
+				<td>
+				
+					<b>날짜 선택</b>&nbsp;&nbsp;
+						<input type="date" name="date">
+				
+				</td>
+			</tr>
+			<tr align="center">
+			<td colspan="2">
+				<input type="button" value="결과출력" onclick="disp()">
+				<input type="reset" value="초기화" onclick="init()">
+			</td>
+		
+		</tr>
+	</table>
+</form>
+<div id="out"></div>
+</body>
+</html>

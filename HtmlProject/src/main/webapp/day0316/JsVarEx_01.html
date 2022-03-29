@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	var a="hello";
+	var b=100;
+	var c=3.5;
+	var d='30';
+	
+	//typeof:저장된 데이터 타입 알아보기
+	document.write(typeof(a)+"<br>");
+	document.write(typeof(b)+"<br>");
+	document.write(typeof(c)+"<br>");
+	document.write(typeof(d)+"<br>");
+	
+	document.write((d+100)+"<br>");
+	document.write((b+100)+"<br>");
+	
+	//숫자로 변환 후 계산
+	var sum=parseInt(d)+100;
+	document.write(sum+"<br>");
+	
+	var s="5*6-3";
+	document.write(s+"<br>");
+	document.write(eval(s)+"<br>");
+	
+	//isNaN(Not a Number):문자일 경우 true,숫자일 경우 false
+	document.write(isNan(100)+"<br>");
+	document.write(isNan("hello")+"<br>");
+	document.write(isNan("a100")+"<br>");
+	
+	//현재 날짜 출력
+	var date=new Date();
+	document.write("date.getFullYear(): "+date.getFullYear()+"<br>");//년
+	document.write("date.getYear(): "+date.getYear()+"<br>");//년x
+	document.write("date.getMonth(): "+(date.getMonth()+1)+"<br>"); //1더해준다
+	document.write("date.getMonth(): "+date.getDate()+"<br>");//일
+	
+	document.write("오늘은 "+date.getFullYear() +"년"+(date.getMonth()+1)+"월"+date.getDate()+"일<br>");
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#photo{
+	position: absolute;
+	left: 500px;
+	top:200px;
+	width: 400px;
+	height: 500px;
+	border: 5px groove pink;
+}
+
+#btnRandom{
+margin-left: 400px;
+width: 80px;
+height: 80px;
+}
+</style>
+
+<script type="text/javascript">
+window.onload=function(){
+	//배열에 여러개 이미지 넣기
+	var imgarr=new Array();
+	
+	imgarr.push("../bg/gameimage/c1.png");
+	imgarr.push("../bg/gameimage/c2.png");
+	imgarr.push("../bg/gameimage/c3.png");
+	imgarr.push("../bg/gameimage/c4.png");
+	imgarr.push("../bg/gameimage/c5.png");
+	imgarr.push("../bg/gameimage/m01.jpg");
+	imgarr.push("../bg/gameimage/m02.jpg");
+	imgarr.push("../bg/gameimage/m03.jpg");
+	imgarr.push("../bg/gameimage/m04.jpg");
+	imgarr.push("../bg/gameimage/m05.jpg");
+	
+	//초기 이미지를 요소값 얻어서 랜덤하게 넣기
+	var photo=document.getElementById("photo");
+	//0~9사이 난수값얻기
+	var idx=parseInt(Math.random()*10);
+	photo.setAttribute("src",imgarr[idx]);
+	
+	
+	//버튼 클릭시 랜덤이미지 나오게..
+	document.getElementById("btnRandom").onclick=function(){
+		
+		var idx=parseInt(Math.random()*10);
+		photo.setAttribute("src",imgarr[idx]);
+		
+	}
+	
+}
+
+</script>
+
+
+</head>
+<body>
+<input type="image" src="../html_img/f1.png" id="btnRandom">
+<marquee width="500" direction="left" behavior="slide">
+	<img alt="" src="../bg/gameimage/01.png" width="50">
+<b>왼쪽 버튼을 누르면 이미지가 바뀝니다</b></marquee>
+<img id="photo">
+</body>
+</html>

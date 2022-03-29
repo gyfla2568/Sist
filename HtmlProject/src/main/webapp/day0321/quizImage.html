@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=East+Sea+Dokdo&family=Gugi&family=Hi+Melody&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<script type="text/javascript">
+
+window.onload=function(){
+	out=document.getElementById("out");
+	//스타일쉬트 변경테스트
+/* 	out.style.color='red';
+	out.style.fontsize='30pt';
+	out.style.fontWeight='bold';
+	out.style.backgroundColor='yellow';
+	out.style.fontFamily='Gamja Flower' */
+	
+	//굵게 체크박스
+	document.getElementById("chkbold").onclick=function(){
+		
+		console.log(this.value); //클릭시 무조건 on
+		console.log(this.checked); //체크했을 때 true
+		if(this.checked)
+			out.style.fontWeight='bold';
+		else
+			out.style.fontWeight='';
+		
+	}
+	
+}	
+	function changeColor(tcolor){
+		
+		//글자색적용
+		console.log(tcolor);
+		out.style.color=tcolor;
+		
+	}
+	
+	function changeSize(tsize){
+		
+		//폰트 사이즈 적용
+		console.log(tsize);
+		out.style.fontSize=tsize+"pt";
+		
+	}
+	function changeFamily(tfam){
+		
+		//폰트 적용
+		console.log(tfam);
+		out.style.fontFamily=tfam;
+		
+	}
+	function changeBgColor(bcolor){
+		
+		console.log(bcolor);
+		//배경
+		out.style.backgroundColor=bcolor;
+	}
+</script>
+
+</head>
+<body>
+<h2>각종 폼태그들 적용</h2>
+
+글자색 변경<input type="color" value="#ffccff" onchange="changeColor(this.value)">
+<br>
+글자크기 변경:
+<select onchange="changeSize(this.value)" style="width: 100px;">
+	<option>10</option>
+	<option>13</option>
+	<option>16</option>
+	<option>20</option>
+	<option>24</option>
+	<option>28</option>
+
+</select>
+<br>
+굵게 속성:
+<input type="checkbox" id="chkbold">굵게
+<br>
+폰트선택:
+<input type="radio" name="fam" value="Black Han Sans" onchange="changeFamily(this.value)">글꼴1
+<input type="radio" name="fam" value="Dokdo" onchange="changeFamily(this.value)">글꼴2
+<input type="radio" name="fam" value="Gugi" onchange="changeFamily(this.value)">글꼴3
+<br>
+배경색 선택:
+<select onchange="changeBgColor(this.value)"style="width: 100px;">
+	<option value="red">빨강</option>
+	<option value="yellow">노랑</option>
+	<option value="pink">핑크</option>
+	<option value="honeydew">연초색</option>
+	<option value="#e0ffff">하늘색</option>
+	<option value="pale violetred">바이올렛</option>
+</select>
+
+<div id="out" style="margin-top: 30px;">재미있는 Html&css&javascript!</div>
+</body>
+</html>

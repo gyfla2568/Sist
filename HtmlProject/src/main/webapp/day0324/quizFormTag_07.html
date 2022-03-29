@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=East+Sea+Dokdo&family=Gugi&family=Hi+Melody&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	$("#btn").click(function () {
+		//폰트와 색상 가져오기
+		fcolor=$("input[name='fcolor']:checked").val();
+		family=$("#selfont option:selected").text();
+		$("#result").css({
+			"color":fcolor,
+			"font-family":family
+			
+		});
+		
+		
+		//이미지 가져오기
+		s="";
+		$("input[name='imge']:checked").each(function(i, element) {
+			s+="<img src='../bg/gameimage/"+$(this).val()+".png'>";
+			
+		});
+		$("div.myimg").html(s);
+	});
+});
+</script>
+</head>
+<body>
+<h3>폼태그 문제</h3>
+<div>
+	<h4>글자색</h4>
+		<input type="radio" name="fcolor" value="#ff00ff">핑크
+		<input type="radio" name="fcolor" value="#228bff">초록
+		<input type="radio" name="fcolor" value="#822222">브라운
+		<input type="radio" name="fcolor" value="#9370d8" checked="checked">퍼플
+		
+	<h4>글꼴</h4>
+	<select id="selfont">
+		<option>Black Han Sans</option>
+		<option>East Sea Dokdo</option>
+		<option>Hi Melody</option>
+		<option>Dokdo</option>
+	</select>
+	
+	<h4>체크된 이미지 출력</h4>
+	<input type="checkbox" name="imge" value="01">아이콘1
+	<input type="checkbox" name="imge" value="02">아이콘2
+	<input type="checkbox" name="imge" value="03">아이콘3
+	<input type="checkbox" name="imge" value="04">아이콘4
+	<br>
+	<br>
+	<button type="button" id="btn">선택한 값 모두 적용하기</button>
+</div>
+
+
+
+<div id="result">
+	여러분!오늘은 즐거운 목요일입니다
+	<div class="myimg"></div>
+
+</div>
+
+
+
+</body>
+</html>

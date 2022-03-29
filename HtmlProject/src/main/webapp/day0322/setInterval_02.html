@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#myimg{position: absolute;}
+
+
+#btnstart{
+	margin-left: 400px;
+	width: 150px;
+	font-size: 20pt;
+	position:relative;
+	top: 200px;
+	 
+}
+
+#btnstop{
+	margin-left: 400px;
+	width: 150px;
+	font-size: 20pt;
+	position:relative;
+	top: 200px;
+	 
+}
+</style>
+<script type="text/javascript">
+var myimg;
+var xpos=0;
+var ms=100;//밀리언초
+var inter; //setInterval에 관한 변수..clear가능
+
+window.onload=function(){
+	myimg=document.getElementById("myimg");
+	
+	//start버튼 이벤트
+	document.getElementById("btnstart").onclick=function(){
+		
+		inter=setInterval(function() {
+			
+			myimg.style.left=xpos+"px";
+			xpos+=10;
+			
+		}, ms);
+		
+	}
+	//stop버튼
+	document.getElementById("btnstop").onclick=function(){
+		clearInterval(inter); //setInterval멈춤
+		
+	}
+	
+	//키보드 이벤트의 아스키코드값 확인
+	window.onkeydown=function(e){
+		console.log(e.keyCode); /* 방향키,엔터 */
+		
+		//상: 38 하:40 좌: 37 우: 39 13:엔터
+		
+	}
+	
+}
+
+</script>
+
+
+</head>
+<body>
+<img alt="" src="../bg/gameimage/07.png" id="myimg">
+<br><br>
+<button type="button"id="btnstart">Go!</button>
+<button type="button" id="btnstop">STOP!</button>
+</body>
+</html>

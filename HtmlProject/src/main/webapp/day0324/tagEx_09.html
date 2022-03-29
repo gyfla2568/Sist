@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=East+Sea+Dokdo&family=Gugi&family=Hi+Melody&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</head>
+<body>
+<div class="one">
+	첫번째 div
+	<div class="hana">div 하나</div>
+	<div>div 둘</div>
+	<div>div 셋</div>
+	<h3>h3 Tag</h3>
+	<h4>h4 Tag</h4>
+</div>
+
+<div class="two">
+	두번째 div
+	<div class="hana">div 하나</div>
+	<div>div 둘</div>
+	<div>div 셋</div>
+	<h3>h3 Tag</h3>
+	<h4>h4 Tag</h4>
+</div>
+<script type="text/javascript">
+	//patent():부모태그
+	//siblings():형제태그					
+	//children():자식태그
+$("div.one div.hana").siblings().css("color","red");
+$("div").children("div.hana").css("text-decoration","underline");
+$("div.hana").next().next().css("background-color","orange");
+$("div.two").find("h3").css("border","2px solid cyan");
+
+//one이라는 div를 클릭시 그 하위 태그 중 div를 찾아서 숨겨보시오
+$("div.one").click(function() {
+	//나의 형제태그에서 div를 찾아서 숨겨라
+	//$(this).find("div").hide("slow") //find는 하위태그인 hana를 가르킨다.
+	//$(this).siblings().find("div").hide('slow'); //형제태그의 하위태그를 숨긴다
+});
+
+//two를 클릭시 나의 하위태그중 h3을 찾아 숨겨라
+$("div.two").click(function() {
+	//나의 형제태그에서 div를 찾아서 숨겨라
+	//$(this).find("h3").hide("slow") //find는 하위태그인 hana를 가르킨다.
+	$(this).siblings().find("h3").hide('slow'); //형제태그의 하위태그 h3을 숨긴다
+});
+</script>
+</body>
+</html>

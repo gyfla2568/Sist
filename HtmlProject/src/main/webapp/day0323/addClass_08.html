@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&family=East+Sea+Dokdo&family=Gugi&family=Hi+Melody&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+a{	
+	background-color: cyan;
+	cursor:pointer;
+	border: 3px groove gray;
+	margin-left: 10px;
+	font-size: 15pt;
+}
+div{
+	width: 300px;
+	height: 300px;
+	border: 1px solid gray;
+	margin-top: 30px;
+}
+div.a{
+	font-size: 2em;
+	font-family: '궁서체';
+	color: red;
+	
+}
+div.b{
+	border: 10px groove gold;
+	border-radius: 30px;
+	box-shadow: 5px 5px 5px tomato;
+
+}
+div.c{
+	background-image: url("../html_img/cook1.jpg");
+	background-repeat: no-repeat;
+	background-size: 150px 150px;
+	background-position: center center;
+}
+</style>
+</head>
+<body>
+<a>클래스 a만 추가</a>
+<a>클래스 b만 추가</a>
+<a>클래스 a,b만 추가</a>
+<a>클래스 c만 추가</a>
+<a>클래스 a,b,c 모두 추가</a>
+<div>제이쿼리</div>
+
+<script type="text/javascript">
+//첫번째 a누르면 a클래스만 추가
+$("a:eq(0)").click(function(){
+	$("div").removeClass("b c").addClass("a");	
+	
+});
+//두번째 a를 누르면 b만추가
+$("a:eq(1)").click(function(){
+	$("div").removeClass("a c").addClass("b");
+});
+//세번째 a를 누르면 a,b추가
+$("a:eq(2)").click(function(){
+	$("div").removeClass("c").addClass("a b");
+});
+//네번째 a를 누르면 c만 추가 a,b제거
+$("a:eq(3)").click(function(){
+	$("div").removeClass("a b").addClass("c");
+});
+//5번째 버튼 누르면 a,b,c 다 추가
+$("a:eq(4)").click(function(){
+	$("div").addClass("a b c");
+});
+
+</script>
+</body>
+</html>

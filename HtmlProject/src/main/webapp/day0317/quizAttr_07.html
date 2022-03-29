@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.test{
+	width: 100px;
+
+}
+.result{
+	width: 300px;
+	height: 350px;
+	
+}
+div #img_div{
+	position: absolute;
+	left: 500px;
+	top: 100px;
+	cursor: pointer;
+	
+}
+#result_div>img{
+	position: absolute;
+	left:350;
+	top: 300px;
+	width: 500px;
+	height: 550px;
+}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+	//id로 객체 읽어온다(img라고 읽어와서 img라고 하겠다)
+
+
+		var img=[document.getElementById("img1"),
+			document.getElementById("img2"),
+			document.getElementById("img3"),
+			document.getElementById("img4"),
+			document.getElementById("img5"),
+			document.getElementById("img6"),
+			document.getElementById("img7"),
+			document.getElementById("img8"),
+			document.getElementById("img9"),
+			document.getElementById("img10"),];
+	
+		
+	//각 객체마다 온클릭 기능 부여..
+	//setAttribure는 선택한 요소의 element속성값을 정해준다.
+	for(var i=0;i<img.length;i++)
+		{
+			img[i].onclick=function(){
+				img11.setAttribute("src",this.getAttribute("src"));
+			}
+		}
+}
+</script>
+</head>
+<body>
+<div id="img_div">
+	<img alt="" src="../bg/gameimage/01.png" id="img1" class="test">
+	<img alt="" src="../bg/gameimage/02.png" id="img2" class="test">
+	<img alt="" src="../bg/gameimage/03.png" id="img3" class="test">
+	<img alt="" src="../bg/gameimage/04.png" id="img4" class="test">
+	<img alt="" src="../bg/gameimage/05.png" id="img5" class="test">
+	<img alt="" src="../bg/gameimage/06.png" id="img6" class="test">
+	<img alt="" src="../bg/gameimage/07.png" id="img7" class="test">
+	<img alt="" src="../bg/gameimage/08.png" id="img8" class="test">
+	<img alt="" src="../bg/gameimage/09.png" id="img9" class="test">
+	<img alt="" src="../bg/gameimage/10.png" id="img10" class="test">
+
+</div>
+<div id="result_div">
+	<img alt="" src="../bg/gameimage/01.png" class="result" id="img11">
+</div>
+</body>
+</html>

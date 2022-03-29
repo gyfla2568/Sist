@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#out{
+	position: absolute;
+	top: 50px;
+	border: 2px solid gray;
+	width: 300px;
+	height: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+	background-color: #ffffcc;
+	font-size: 11pt;
+}
+</style>
+<script type="text/javascript">
+
+var rnd;
+var cnt=0; //10이상이면 실패
+
+window.onload=function(){
+	rnd=parseInt(Math.random()*100)+1; //1에서부터 100까지의 랜덤수 발생
+
+}
+function check(su){
+	
+	//1~100까지만 입력해야하며 틀렸을 경우: 널값체크 및 초기화
+	if(su<=0||su>100)
+	{
+		alert("잘못입력하였어요~~");
+		frm.num.value='';
+		return false;
+	}
+	
+	//난수와 비교해서 결과 출력..성공이미지
+	cnt++;
+	if(su>rnd)
+		out.innerHTML+=cnt+":"+su+"보다 작습니다<br>";	
+	else if(su<rnd)
+		out.innerHTML+=cnt+":"+su+"보다 큽니다<br>";
+	else{
+			out.innerHTML="<h4>축하합니다.. 정답은"+rnd+"입니다.</h4>";
+			imge.src="../bg/gameimage/chick.gif"
+		
+		return false; /*유효성 검사할 때 명확하게 하기 위해 안맞으면 아무것도 안보내겠다.*/
+	}
+	//실패이미지
+	if(cnt>=10)
+		{
+		out.innerHTML="<h4>꽝 다음기회에..</h4>";
+		imge.src="../bg/gameimage/c3.png"
+		
+		return false;
+	}
+	frm.num.value='';
+}
+</script>
+</head>
+<body>
+	<form action="#" name="frm" onsubmit="return false">
+	 <b>숫자입력: </b>
+	 <!-- 숫자입력 후 엔터누르면 함수호출하면서 값을 전달 -->
+	 <input type="text" name="num" size="5" onkeydown="if(event.keyCode==13) check(value)">
+	 
+	</form>
+	<div id="out"></div>
+	<div style="position: absolute; top: 80px; left: 350px;">
+		<img alt="" src="" name="imge">
+		
+	</div>
+</body>
+</html>

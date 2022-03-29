@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 숫자 5개가 3초마다 랜덤하게 나오도록, 중복되지 않게 하시오(1~9) -->
+<script type="text/javascript">
+
+window.onload=function(){
+	setInterval(rndNum,3000);
+
+}
+
+function rndNum(){
+
+	var su=new Array();
+	
+	for(var i=0;i<5;i++)
+	{
+		/*1부터 9까지 랜덤수*/
+		su[i]=parseInt(Math.random()*9)+1;
+		
+		//중복체크
+		for(var j=0;j<i;j++)
+		{
+			if(su[i]==su[j]){
+				i--;
+				break;
+			}
+		}
+	
+	}
+	
+	for(var i=0;i<5;i++)
+	{
+		imge[i].src='../num/'+su[i]+'.gif';
+	}
+	
+}
+
+</script>
+</head>
+<body>
+<img alt="" src="" name="imge">
+<img alt="" src="" name="imge">
+<img alt="" src="" name="imge">
+<img alt="" src="" name="imge">
+<img alt="" src="" name="imge">
+
+</body>
+</html>

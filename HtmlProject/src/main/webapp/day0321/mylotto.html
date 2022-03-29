@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mylotto.css">
+
+<script type="text/javascript">
+
+lotto=[6,12,26,33,38,42]; //정답로또 숫자
+//랜덤하게 6개 구해서 출력
+mylotto=new Array(6);
+window.onload=function(){
+
+	//로또 출력
+	writeLotto();
+	
+	//새로고침 버튼 이벤트
+	document.getElementById("btnRefresh").onclick=function(){
+		//마이로또출력메서드 호출
+		writeLotto();
+	}
+	
+	
+	//선택버튼 이벤트
+	document.getElementById("btnselect").onclick=function(){
+	
+		var score=0;
+		
+		//정답과 비교해서 점수계산
+		for(var i=0;i<mylotto.length;i++){
+			for(var j=0;j<lotto.length;j++){
+				if(mylotto[i]==lotto[j]){
+					score++;
+				}
+			}
+		}
+		var s="<b>이번주 로또 정답<b><br>";
+		for(var i=0;i<lotto.length;i++){
+			s+="["+lotto[i]+"]&nbsp;&nbsp;";
+		}
+		s+="<br>맞은갯수: "+score+"개";
+		
+		/*score에 따른 결과주기  */
+		s+="<h3 style='color:red;'>";
+		
+		if(score==6)
+			s+="1등!!!";
+		else if(score==5)
+			s+="2등!!";
+		else if(score==4)
+			s+="3등!!";
+		else
+			s+="꽝";
+		
+		s+="</h3>";
+		
+		view.innerHTML=s;
+	}
+
+}
+//로또 출력 메서드(밖에다가 넣어야함 메서드안에 메서드x)
+function writeLotto(){
+	
+	for(var i=0;i<mylotto.length;i++){
+		mylotto[i]=parseInt(Math.random()*45)+1;
+		
+		//정답과 비교해서 점수계산
+		for(var j=0;i<i;j++){
+			if(mylotto[i]==mylotto[j]){
+				i--;
+				break;
+			}
+		}
+	}
+		//lotto를 div에 출력
+		var lottodiv=document.getElementsByClassName("lotto");
+		for(var i=0;i<lottodiv.length;i++){
+			lottodiv[i].innerHTML=mylotto[i];
+		
+	}
+}
+</script>
+</head>
+<body>
+<div class="lotto"></div>
+<div class="lotto"></div>
+<div class="lotto"></div>
+<div class="lotto"></div>
+<div class="lotto"></div>
+<div class="lotto"></div>
+<hr class="hr" align="left" size="5" color="gray">
+
+<button type="button" class="btna" id="btnRefresh">다른 숫자발생</button>
+<button type="button" class="btna" id="btnselect">최종결정</button>
+<br><br>
+<div id="view"></div>
+</body>
+</html>

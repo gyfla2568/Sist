@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function moveToUrl(url){
+		document.location.href=url;
+	}
+</script>
+
+
+</head>
+<body>
+<form name="myform">
+	<select name="url" onchange="moveToUrl(this.value)">
+		<option>선택하세요</option>
+		<option value="http://www.naver.com">네이버</option>
+		<option value="http://www.google.com">구글</option>
+		<option value="http://www.daum.net">다음</option>
+	</select>
+</form>
+</body>
+</html>

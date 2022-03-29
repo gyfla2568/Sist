@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div>div{
+	margin-left: 10px;
+	margin-top: 30px;
+	float: left;
+	border-radius: 100px; /* 모서리둥글게 */
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	font-size:3em;
+	font-family: 'Comic Sans Ms';
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	box-shadow: 5px 5px 5px gray; /*x,y,blur,색상  */
+}
+#one{background-color: #ffebee;}
+#two{background-color: #ffcdd2;}
+#three{background-color: #ef9a9a;}
+#four{background-color: #e57373;}
+#five{background-color: #ef5350;}
+#six{background-color: #e53935;}
+
+#btnstart,#btnstop{
+	margin-top:10;
+	margin-left:10;
+	width: 70px;
+	height: 70px;
+	border: 1px solid #e8eaf6;
+	text-align: center;
+	line-height: 70px;
+	font-size: 17px;
+	font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+
+window.onload=function(){
+	document.getElementById("btnstart").onclick=function(){
+		
+		var lotto=new Array(6);
+		
+		interval=setInterval(function(){
+			for(i=0;i<lotto.length;i++){
+				lotto[i]=parseInt(Math.random()*45)+1; /*1부터 45까지의 난수발생 */
+				for(j=0;j<i;j++){
+					if(lotto[j]==lotto[i]){
+						i--;
+						break;
+				}
+			}
+			
+		}
+		
+		one.innerText=lotto[0];
+		two.innerText=lotto[1];
+		three.innerText=lotto[2];
+		four.innerText=lotto[3];
+		five.innerText=lotto[4];
+		six.innerText=lotto[5];
+		
+		},100);/* 0.1초마다 바뀌게 하기 */
+		
+	}
+	document.getElementById("btnstop").onclick=function(){
+		
+		clearInterval(interval); //setInterval멈춤
+	}
+	
+
+}
+
+</script>
+</head>
+<body>
+<div>
+	<div id="one">1</div>
+	<div id="two">1</div>
+	<div id="three">1</div>
+	<div id="four">1</div>
+	<div id="five">1</div>
+	<div id="six">1</div>
+</div>
+
+<button type="button" id="btnstart">시작</button>
+<button type="button" id="btnstop">멈춤</button>
+</body>
+</html>
